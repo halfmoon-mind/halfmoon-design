@@ -14,5 +14,5 @@ test('깨진 참조는 빌드를 실패시킨다 (brokenReferences 기본값 = t
       },
     },
   });
-  await assert.rejects(() => sd.buildAllPlatforms());
+  await assert.rejects(() => sd.buildAllPlatforms(), /reference/i);
 });
