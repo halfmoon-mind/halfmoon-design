@@ -124,8 +124,8 @@ Button, Badge, Card, Input, Label, Textarea, Select, Checkbox, Switch, Dialog, D
 - **git 태그 + pnpm 서브디렉토리 설치** (pnpm ≥9 문법; `&`는 셸 메타문자라 따옴표 필수):
 
   ```sh
-  pnpm add "github:halfmoon-mind/halfmoon_design#tokens-v0.2.0&path:packages/tokens"
-  pnpm add "github:halfmoon-mind/halfmoon_design#react-v0.1.0&path:packages/react"
+  pnpm add "github:halfmoon-mind/halfmoon-design#tokens-v0.2.0&path:packages/tokens"
+  pnpm add "github:halfmoon-mind/halfmoon-design#react-v0.1.0&path:packages/react"
   ```
 
   - **소비자 pnpm ≥11.7 권장** — 그 미만은 lockfile에서 `path:`가 유실돼 재설치 시 레포 루트가 풀리는 버그 확인됨 (pnpm 11.7에서 수정).

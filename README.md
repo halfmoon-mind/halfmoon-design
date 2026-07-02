@@ -1,25 +1,29 @@
 # halfmoon
 
-playtag 프로젝트들의 공통 디자인 시스템. 단일 소스는 DTCG 토큰(`src/`)이며,
-빌드가 웹용 CSS 변수와 타입된 JS 객체를 생성한다(`dist/`, 커밋됨).
+공통 디자인 시스템 모노레포. 단일 소스는 DTCG 토큰(`packages/tokens/src/`)이며,
+빌드가 CSS 변수·타입된 JS 객체·Tailwind v4 `@theme` 매핑을 생성한다.
+React 컴포넌트(`packages/react`)는 shadcn을 halfmoon 토큰 브리지로 테마링한다.
+dist/는 커밋된다 (git 설치 시 빌드 불필요).
 
-- 설계 스펙: `docs/superpowers/specs/2026-07-02-halfmoon-design-system-design.md`
+- 설계 스펙: `docs/superpowers/specs/`
 - 사용법: `docs/consuming-web.md`
 - 토큰 규칙: `docs/naming.md`
 
 ## 개발
 
 ```bash
-npm ci
-npm run check   # build + test
+pnpm install
+pnpm run check       # 전 패키지 build + test
+pnpm --filter @halfmoon/react storybook   # 컴포넌트 워크벤치
 ```
 
-## 릴리스
+## 릴리스 (패키지별)
 
 ```bash
-npm run check
-git add dist && git commit -m "chore: rebuild dist"   # dist 변경이 있을 때
-npm version 0.1.0                                      # 커밋 + v0.1.0 태그 생성
+pnpm run check
+git add packages/*/dist && git commit -m "chore: rebuild dist"   # dist 변경 시
+# packages/<pkg>/package.json의 version 수동 인상 후:
+git commit -am "chore(tokens): v0.2.0" && git tag tokens-v0.2.0   # react는 react-v*
 ```
 
 ## 라이센스
