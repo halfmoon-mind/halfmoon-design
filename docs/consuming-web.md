@@ -61,7 +61,7 @@ tokens.space['4'];              // 16 (숫자, px 없음)
 ```bash
 pnpm add tailwindcss @tailwindcss/vite tw-animate-css
 pnpm add "github:halfmoon-mind/halfmoon-design#tokens-v0.2.0&path:packages/tokens"
-pnpm add "github:halfmoon-mind/halfmoon-design#react-v0.1.0&path:packages/react"
+pnpm add "github:halfmoon-mind/halfmoon-design#react-v0.1.1&path:packages/react"
 ```
 
 `vite.config.ts`에 Tailwind 플러그인:

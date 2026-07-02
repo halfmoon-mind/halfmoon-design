@@ -1,6 +1,6 @@
 {
   "name": "@halfmoon/react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "halfmoon design system — React components (shadcn themed by halfmoon tokens)",
   "type": "module",
   "license": "PolyForm-Noncommercial-1.0.0",
