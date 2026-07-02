@@ -105,7 +105,7 @@ halfmoon/
 
 ## 9. 배포·버저닝
 
-- **시작: git 태그 의존성** (`npm install github:<org>/halfmoon#v0.1.0` 방식) — 레지스트리 인프라 0. semver가 실제로 필요한 소비 팀이 생기면 GitHub Packages(비공개 npm)로 승격.
+- **시작: git 태그 의존성** (예: `npm install github:playtag/halfmoon#v0.1.0` — 실제 org/레포명은 호스팅 위치를 따름) — 레지스트리 인프라 0. semver가 실제로 필요한 소비 팀이 생기면 GitHub Packages(비공개 npm)로 승격.
 - 버전: 수동 `npm version` + git 태그. 패키지가 2개가 되는 순간 **Changesets** 도입 (Primer/Polaris/Spectrum 표준 스택).
 
 ## 10. 단계별 계획
