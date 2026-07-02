@@ -54,7 +54,7 @@
 ## 5. 빌드 파이프라인
 
 - **Style Dictionary v5** (버전 고정). 선정 이유: 웹·Flutter·RN·iOS·Android 출력을 전부 내장/표준 패턴으로 지원하는 유일한 OSS 토큰 컴파일러. Terrazzo는 웹+iOS 중심이라 탈락. 소스가 DTCG라 도구 교체가 함정이 되지 않음.
-- 하나의 `sd.config.mjs`에서 테마별 출력 (Phase 0):
+- 하나의 빌드 스크립트(`build/build.mjs` — light/dark 두 SD 인스턴스 + 커스텀 포맷 등록)에서 테마별 출력 (Phase 0):
   - **CSS**: `dist/<theme>/light.css`(`:root`) + `dist/<theme>/dark.css`(`[data-theme="dark"]`) — 내장 `css/variables` 포맷을 selector 옵션으로 2회 호출, 커스텀 포맷 0. 정적 `tokens.css`가 두 파일을 `@import`.
   - **TypeScript**: `dist/<theme>/tokens.ts(.d.ts)` — `as const` 객체. dimension은 단위 없는 숫자(px 제거 transform), 색은 문자열, 타이포는 객체. 내장 포맷이 `as const`를 지원하지 않으므로 **소형 커스텀 포맷 1개**(수십 줄) 필요 — Phase 0 견적에 포함.
   - **Tailwind v4 `@theme`**: **Phase 1로 이연** (shadcn/ui와 함께 도입). 결정 사항 선기록: Tailwind v4는 자기 네임스페이스(`--color-*`, `--spacing-*` 등)에서만 유틸리티를 생성하므로, `@theme` 출력은 `hm` 접두사 없이 Tailwind 네임스페이스로 매핑한다(유틸리티 생성 유지). `--hm-` 접두사는 `tokens.css`(비-Tailwind 소비자용) 전용. 두 산출물 모두 같은 소스에서 생성되므로 drift 없음.
@@ -76,7 +76,7 @@ halfmoon/                            # 레포 루트 = @playtag/halfmoon-tokens 
 │       └── halfmoon/
 │           ├── light.tokens.json
 │           └── dark.tokens.json     # 바뀌는 토큰만
-├── sd.config.mjs
+├── build/                           # build.mjs + formats.mjs (커스텀 TS 포맷)
 ├── package.json                     # exports 맵: ./css ./ts (테마별)
 ├── dist/                            # 생성물 — 릴리스 태그 커밋에 포함 (§9)
 ├── docs/                            # Phase 0: GitHub 렌더링 마크다운만
