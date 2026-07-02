@@ -1,0 +1,33 @@
+{
+  "color": {
+    "$type": "color",
+    "bg": {
+      "default": { "$value": "{color.gray.950}" },
+      "subtle": { "$value": "{color.gray.900}" },
+      "muted": { "$value": "{color.gray.800}" },
+      "inverted": { "$value": "{color.gray.50}" }
+    },
+    "fg": {
+      "default": { "$value": "{color.gray.50}" },
+      "muted": { "$value": "{color.gray.400}" },
+      "subtle": { "$value": "{color.gray.500}" },
+      "inverted": { "$value": "{color.gray.900}" },
+      "link": { "$value": "{color.blue.400}" }
+    },
+    "border": {
+      "default": { "$value": "{color.gray.800}" },
+      "strong": { "$value": "{color.gray.700}" }
+    },
+    "action": {
+      "primary": {
+        "bg": { "$value": "{color.blue.500}" },
+        "hover": { "$value": "{color.blue.400}" }
+      }
+    },
+    "status": {
+      "danger": { "$value": "{color.red.500}" },
+      "success": { "$value": "{color.green.500}" },
+      "warning": { "$value": "{color.amber.400}" }
+    }
+  }
+}

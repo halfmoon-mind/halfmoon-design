@@ -1,0 +1,35 @@
+{
+  "color": {
+    "$type": "color",
+    "bg": {
+      "default": { "$value": "{color.white}" },
+      "subtle": { "$value": "{color.gray.50}" },
+      "muted": { "$value": "{color.gray.100}" },
+      "inverted": { "$value": "{color.gray.900}" }
+    },
+    "fg": {
+      "default": { "$value": "{color.gray.900}" },
+      "muted": { "$value": "{color.gray.600}" },
+      "subtle": { "$value": "{color.gray.400}" },
+      "inverted": { "$value": "{color.white}" },
+      "link": { "$value": "{color.blue.600}" }
+    },
+    "border": {
+      "default": { "$value": "{color.gray.200}" },
+      "strong": { "$value": "{color.gray.300}" },
+      "focus": { "$value": "{color.blue.500}" }
+    },
+    "action": {
+      "primary": {
+        "bg": { "$value": "{color.blue.600}" },
+        "hover": { "$value": "{color.blue.700}" },
+        "fg": { "$value": "{color.white}" }
+      }
+    },
+    "status": {
+      "danger": { "$value": "{color.red.600}" },
+      "success": { "$value": "{color.green.600}" },
+      "warning": { "$value": "{color.amber.500}" }
+    }
+  }
+}
