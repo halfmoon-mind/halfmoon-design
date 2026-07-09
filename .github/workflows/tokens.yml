@@ -2,6 +2,7 @@ name: check
 on:
   push:
     branches: [main]
+    tags: ['tokens-v*', 'react-v*']
   pull_request:
 
 jobs:
@@ -19,3 +20,30 @@ jobs:
       # dist/는 커밋 대상 — 소스와 어긋나면 실패 (스펙 §7, 미추적 파일 포함)
       - run: test -z "$(git status --porcelain packages/*/dist)"
       - run: pnpm -r run test
+
+  # 태그 push 시 tarball을 GitHub Release에 첨부 — yarn/npm 소비자용 (consuming-web.md 참조)
+  release:
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Pack tagged package
+        run: |
+          pkg=$(echo "${GITHUB_REF_NAME}" | sed 's/-v[0-9].*//')   # tokens-v0.3.0 → tokens
+          pnpm --filter "./packages/${pkg}" pack --out "halfmoon-${GITHUB_REF_NAME}.tgz"
+      - name: Create GitHub Release with tarball
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" "halfmoon-${GITHUB_REF_NAME}.tgz" \
+            --title "${GITHUB_REF_NAME}" \
+            --notes "yarn/npm: \`yarn add @halfmoon/<pkg>@<tarball asset URL>\` (consuming-web.md 참조)"
