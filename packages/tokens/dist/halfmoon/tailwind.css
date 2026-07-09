@@ -47,6 +47,7 @@
   --font-weight-medium: var(--hm-font-weight-medium);
   --font-weight-semibold: var(--hm-font-weight-semibold);
   --font-weight-bold: var(--hm-font-weight-bold);
+  --font-weight-extrabold: var(--hm-font-weight-extrabold);
   --leading-tight: var(--hm-font-line-height-tight);
   --leading-normal: var(--hm-font-line-height-normal);
   --leading-relaxed: var(--hm-font-line-height-relaxed);
