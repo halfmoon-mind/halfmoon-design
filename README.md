@@ -9,6 +9,7 @@ dist/는 커밋된다 (git 설치 시 빌드 불필요).
 
 - 사용법: `docs/consuming-web.md`
 - iOS/SPM 사용법: `docs/consuming-ios.md`
+- Android/Compose 사용법: `docs/consuming-android.md`
 - 토큰 규칙: `docs/naming.md`
 
 ## 개발
